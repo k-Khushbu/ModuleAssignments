@@ -1,0 +1,122 @@
+
+           Selenium Module 1
+
+Assignment -1(Webdriver  architecture, All Types of Drivers)
+- First Selenium Test: Verify amazon HomaPage
+- verify the FaceBook HomePage 
+- Verify the Page Title. 
+- Invoke : Firefox, Safari, Opera, IE
+- Using Navigator commands to move home page to other page and comeback to homepage
+
+Assignment -2(Locators working with WebElements)
+- URL (https://demo.guru99.com/test/radio.html
+- Find Option 1 and select
+- Find Checkbox2 and Checkbox3 and select
+- Suggested site(https://demo.guru99.com/test/newtours/register.php)
+- Find Country Dropdown
+- Select “KUWAIT”
+------------------------------------------------------------------------------------------------------------
+
+          Selenium Module 2
+
+Assignment -1(WebTable):
+- url : https://demo.guru99.com/test/web-table-element.php
+- Retrieve the all company names from the table
+- And display in console
+- url : https://demo.guru99.com/test/login.html
+- Enter email
+- Enter password
+- Click on Login button
+
+Assignment -2(Handling Alerts, Frames, Windows):
+- https://demo.guru99.com/test/delete_customer.php
+- Enter customer Id
+- Click on Submit
+- One prompt will open click on ok
+- Again open one prompt click on ok
+Reference site : https://www.guru99.com/alert-popup-handling-selenium.html
+
+Assignment -2.1(Frames):
+- https://demo.guru99.com/test/delete_customer.php
+- Click on the frame shown in the image 
+
+Reference site : https://www.guru99.com/handling-iframes-selenium.html
+Assignment -2.2(Windows):
+- url : http://demo.guru99.com/popup.php
+- Click on Click here
+- It will go to next window. Then enter Email Id
+- Click on Submit
+
+Assignment -3(Actions, JavaScript Executors):
+- url : https://jqueryui.com/
+- Click on Draggable
+- Drag the “Drag me around” box another place
+- Take the Screeshot of that dragged
+- Suggested method javascript Executor 
+------------------------------------------------------------------------------------------------------------
+
+          Selenium Module 3
+
+Assignment -1(TestNG):
+- url : https://demo.guru99.com/test/login.html
+- Using TestNG Annotaions to complete this assignment
+- In Before test annotation must have the initialize the drivers
+- In Test annotation we have to enter the username and password
+- In After annotation must have the close() to close the application
+
+Assignment -2(TestNG):
+- url : https://demo.guru99.com/test/login.html
+- Using TestNG Annotaions to complete this assignment
+- In Before test annotation must have the initialize the drivers
+- In Test annotation we have to enter the username and password
+- You need to take the data(username and password) from datadriven method
+- In After annotation must have the close() to close the application
+
+Assignment -3(TestNG):
+- url : https://demoqa.com/
+- Click on  Forms
+- Click on Practise Form
+- Make above two actions in group as smoke test
+- Then fill the entire form group name will be regression 
+- Enter Submit
+----------------------------------------------------------------------------------------------------------
+
+           Selenium Module 4
+
+Assignment -1(Apache POI (Data Driven)):
+- url : http://demo.guru99.com/V4/
+- Get the data from excel sheet using Apache poi
+- Enter the username 
+- Enter the password
+- Click on Login button
+- One prompt will open click on OK 
+
+Assignment -2(Page Object Model(POM)):
+- url : https://itechnotion.com/what-will-be-the-cost-of-an-app-like-justdial-its-indias-no-1-local-business-directory/
+- Retrieve all headers
+- Click on Products and Select vDoctor 
+- Click on the FEATURES and retrieve the all features
+- Click on TECHNOLOGY and retrieve the all technologies
+- Click on Get Quote 
+- Enter the data into form by taking all the data from excel sheet
+- Select any option in what is your interest
+- Click on submit
+-------------------------------------------------------------------------------------------------------------
+
+      Selenium Module 5
+
+Assignment -1 (Git Assignments)
+
+- Create a Java project and add it to the git repository.
+- Create a new branch of existing repository.
+- In a new branch add new file to the project.
+- Make some changes to existing file and commit the new changes.
+- Go to master and merge new branch with master.
+
+Assignment -2 (Jenkins Assignments)
+
+- Create maven project and add it to git repository, integrate it with jenkins and execute it by providing maven commands.
+- Configure email in jenkins and execute job to get build notifications.
+- Run the job by providing the periodical timer to get triggered automatically at that time.
+
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="13264" started-at="2022-12-13T11:05:45Z" finished-at="2022-12-13T11:05:58Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="13264" started-at="2022-12-13T11:05:45Z" finished-at="2022-12-13T11:05:58Z">
+      <class name="module4.Assignment1">
+        <test-method status="PASS" signature="initialization()[pri:0, instance:module4.Assignment1@60c6f5b]" name="initialization" is-config="true" duration-ms="11448" started-at="2022-12-13T16:35:45Z" finished-at="2022-12-13T16:35:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- initialization -->
+        <test-method status="PASS" signature="login()[pri:0, instance:module4.Assignment1@60c6f5b]" name="login" duration-ms="1178" started-at="2022-12-13T16:35:56Z" finished-at="2022-12-13T16:35:57Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:module4.Assignment1@60c6f5b]" name="closeDriver" is-config="true" duration-ms="630" started-at="2022-12-13T16:35:57Z" finished-at="2022-12-13T16:35:58Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+      </class> <!-- module4.Assignment1 -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
