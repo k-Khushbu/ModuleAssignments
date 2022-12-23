@@ -19,8 +19,12 @@ public class Assignment2_1 {
 		driver.manage().window().maximize();
 		driver.get("https://demo.guru99.com/test/delete_customer.php");
 		driver.switchTo().frame("");
-		driver.findElement(By.id("")).click();
-		
+		//driver.findElement(By.id("")).click();
+		driver.findElement(By.name("cusid")).sendKeys("1176");
+		driver.findElement(By.name("submit")).click();
+		driver.switchTo().alert().accept();
+		driver.switchTo().alert().getText();
+		driver.switchTo().alert().accept();
 		
 	}
 
