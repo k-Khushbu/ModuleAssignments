@@ -1,0 +1,176 @@
+/*
+    Assignment -2(Page Object Model(POM)):
+    - url : https://itechnotion.com/what-will-be-the-cost-of-an-app-like-justdial-its-indias-no-1-local-business-directory/
+    - Retrieve all headers
+    - Click on Products and Select vDoctor
+    - Click on the FEATURES and retrieve the all features
+    - Click on TECHNOLOGY and retrieve the all technologies
+    - Click on Get Quote
+    - Enter the data into form by taking all the data from excel sheet
+    - Select any option in what is your interest
+    - Click on submit
+ */
+package com.module4;
+
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+import utilityPackage.ExcelClass;
+
+import javax.swing.*;
+import java.sql.Struct;
+import java.util.Iterator;
+import java.util.List;
+
+public class Assignment2 {
+    protected WebDriver driver;
+
+    @FindBy(xpath=".//header//ul//li//a")
+    private List<WebElement> headerName;
+
+    @FindBy(xpath=".//header//ul//li//a[contains(text(),'Work')]")
+    private WebElement workLink;
+
+    @FindBy(xpath=".//header//ul//li//a//span[contains(text(),'products')]")
+    private WebElement productLink;
+
+    @FindBy(xpath=".//a[contains(text(), 'Telemedicine Solutions')]")
+    private WebElement vDoctorLink;
+
+    @FindBy(xpath = ".//h3[contains(text(),'List of Features')]")
+    private WebElement listOfFeatures;
+
+    @FindBy(xpath = "(.//section//ul)[3]/li")
+    private List<WebElement> featurePara;
+
+    @FindBy(xpath = ".//a[contains(text(),'Customers')]")
+    private WebElement customersLink;
+
+    @FindBy(xpath = ".//a[contains(text(),'Technologies')]")
+    private WebElement technologyLink;
+
+    @FindBy(xpath = "(.//h2)[position()<=last()-1]")
+    private List<WebElement> techHeadings;
+
+    @FindBy(xpath = "/html/body/div/section/div/div/div/div/div/div/h5/a")
+    private List<WebElement> techNames;
+
+    @FindBy(xpath = ".//div[contains(text(),'Get Started')]")
+    private WebElement btnGetStarted;
+
+    @FindBy(xpath = ".//input[@placeholder=\"Name\"]")
+    private WebElement name;
+
+    @FindBy(xpath = ".//input[@placeholder=\"Email\"]")
+    private WebElement email;
+
+    @FindBy(xpath = ".//input[@placeholder=\"Mobile (For quick talk)\"]")
+    private WebElement mobile;
+
+    @FindBy(xpath = ".//select[@name=\"fields[country]\"]")
+    private WebElement country;
+
+    @FindBy(xpath = ".//select[@name=\"fields[what_is_your_interest]\"]")
+    private WebElement interest;
+
+    @FindBy(xpath = ".//select[@name=\"fields[budget]\"]")
+    private WebElement budget;
+
+    @FindBy(xpath = ".//textarea[@name='fields[message]']")
+    private WebElement brief;
+
+    @FindBy(xpath = ".//button[@type=\"submit\"]")
+    private WebElement btnSubmit;
+
+    public Assignment2(WebDriver driver){
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void headerName(){
+        System.out.println("Headers: \n"+headerName.size());
+        int count = headerName.size();
+        for (int i=0;i<count;i++) {
+            String name = headerName.get(i).getText();
+            System.out.println(name);
+        }
+//        Iterator<WebElement> iterator = headerName.iterator();
+//        while (iterator.hasNext()) {
+//            String url = iterator.next().getText();
+//            System.out.println(url);
+//        }
+
+    }
+
+    public void verifyProductLink(){
+        workLink.click();
+        productLink.click();
+        vDoctorLink.click();
+    }
+
+    public void printFeatures(){
+        driver.navigate().back();
+        driver.navigate().back();
+        ((JavascriptExecutor)driver).executeScript("arguments[0].scrollIntoView(true);", listOfFeatures);
+        System.out.println("List of Features: ");
+        Iterator<WebElement> iterator = featurePara.iterator();
+        while (iterator.hasNext()) {
+            String text = iterator.next().getText();
+            System.out.println(text);
+        }
+    }
+
+    public void printAllTechnologies(){
+        customersLink.click();
+        technologyLink.click();
+        System.out.println(techHeadings.size()+" "+techNames.size());
+        for (int i=0;i<techHeadings.size();i++) {
+           String techHeadingsName = techHeadings.get(i).getText();
+           System.out.println(techHeadingsName);
+            for (int j=0;j<techNames.size();j++){
+                String technoNames = techNames.get(j).getText();
+                System.out.println(technoNames);
+            }
+        }
+    }
+
+    public void fillGetQuoteForm(){
+        btnGetStarted.click();
+
+        String filePath = "../ModuleAssignments/testData.xlsx";
+        String sheetName = "Module4Assignment2_GetQuote";
+
+        String custname = ExcelClass.ReadExcel(filePath,sheetName,1,0);
+        String custemail = ExcelClass.ReadExcel(filePath,sheetName,1,1);
+        String custmobile = ExcelClass.ReadExcel(filePath,sheetName,1,2);
+        String custcountry = ExcelClass.ReadExcel(filePath,sheetName,1,3);
+        String custinterest = ExcelClass.ReadExcel(filePath,sheetName,1,4);
+        String custbudget = ExcelClass.ReadExcel(filePath,sheetName,1,5);
+        String projectbrief = ExcelClass.ReadExcel(filePath,sheetName,1,6);
+
+        name.sendKeys(custname);
+        email.sendKeys(custemail);
+        mobile.sendKeys(custmobile);
+
+        country.click();
+        Select count = new Select(country);
+        count.selectByValue(custcountry);
+
+        interest.click();
+        Select intrst = new Select(interest);
+        intrst.selectByVisibleText(custinterest);
+
+        budget.click();
+        Select budgt = new Select(budget);
+        budgt.selectByVisibleText(custbudget);
+
+        brief.sendKeys(projectbrief);
+
+        btnSubmit.click();
+
+    }
+
+}
